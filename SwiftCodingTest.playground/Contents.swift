@@ -40,4 +40,50 @@ solution(my_string2, index_list2)  // "pizza"
  - `.joined()`: 모든 문자를 하나의 문자열로 합침
  */
 
+/*
+## 📌 잘라서 배열로 저장하기
+문자열 my_str과 n이 매개변수로 주어질 때, my_str을 길이 n씩 잘라서 저장한 배열을 return하도록 solution 함수를 완성해주세요.
+
+### 🔹 문제 설명
+- 문자열 `my_str`과 매개변수 `n`이 주어짐
+- my_str을 n만큼 잘라서 저장해야 됨
+- 저장한 배열을 다시 return하도록 코드를 작성
+
+### 🔹 제한 사항
+ - 1 ≤ my_str의 길이 ≤ 100
+ - 1 ≤ n ≤ my_str의 길이
+ - my_str은 알파벳 소문자, 대문자, 숫자로 이루어져 있습니다.
+
+*/
+
+func solution(_ my_str: String, _ n: Int) -> [String] {
+    var result: [String] = []
+    let length = my_str.count
+    
+    for i in stride(from: 0, to: length, by: n) {
+        let start = my_str.index(my_str.startIndex, offsetBy: i)
+        let end = my_str.index(start, offsetBy: n, limitedBy: my_str.endIndex) ?? my_str.endIndex
+        result.append(String(my_str[start..<end]))
+    }
+    
+    return result
+}
+
+/*:
+## 예제 실행
+*/
+
+print(solution("abc1Addfggg4556b", 6)) // ["abc1Ad", "dfggg4", "556b"]
+print(solution("abcdef123", 3)) // ["abc", "def", "123"]
+print(solution("helloWorld", 4)) // ["hell", "oWor", "ld"]
+
+/*:
+## 설명
+- 결과를 저장할 result 배열을 생성
+- stride(from:to:by:)를 사용해서 0부터 my_str.count까지 n간격으로 순회하면서 문자열을 자름
+- 문자열 슬라이싱 (startIndex: 현재 i위치에서 시작하는 인덱스, endIndex: startIndex에서 n만큼 이동, 하지만 문자열 끝을 넘으면 endIndex = my_str.endIndex
+- 잘라낸 문자열을 배열에 추가
+- \* limitedBy: my_str.endIndex를 사용해서 마지막 남은 문자열도 그대로 추가되도록 설정
+*/
+
 
