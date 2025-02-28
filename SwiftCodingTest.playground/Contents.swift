@@ -141,3 +141,43 @@ func solution(_ quiz:[String]) -> [String] {
  - 삼항 연산자를 사용해서 정답은 O, 오답은 X를 answer 배열에 추가하기 위해 append를 사용
  - answer를 리턴
  */
+
+
+
+/*:
+ ## 📌 다음에 올 숫자
+ 등차수열 혹은 등비수열 common이 매개변수로 주어질 때, 마지막 원소 다음으로 올 숫자를 return 하도록 solution 함수를 완성해보세요.
+ ### 🔹 문제 설명
+- 배열이 [1, 2, 3, 4] 라면 공차가 1인 등차수열이므로 다음에 올 수는 5이므로 5을 return
+- 배열이 [2, 4, 8] 라면 공비가 2인 등비수열이므로 다음에 올 수는 16이므로 16을 return
+
+ 
+ ### 🔹 제한 사항
+ - 2 < common의 길이 < 1,000
+ - -1,000 < common의 원소 < 2,000
+    - common의 원소는 모두 정수입니다.
+ - 등차수열 혹은 등비수열이 아닌 경우는 없습니다.
+ - 등비수열인 경우 공비는 0이 아닌 정수입니다.
+ 
+ */
+
+func solution(_ common:[Int]) -> Int {
+    
+    if common[1] - common[0] == common[2] - common[1] {
+        let difference = common[1] - common[0]
+        return common.last! + difference
+    } else {
+        let ratio = common[2] / common[1]
+        return common.last! * ratio
+    }
+}
+
+/*:
+ ## 설명
+ - 우선 등차수열인지 등비수열인지 판단하기 위해 common[1] - common[0] == common[2] - common[1] 비교 (해당 식이 성립하면 등차수열, 그렇지 않다면 등비수열)
+ - 만약 등차수열이라면 인덱스 1번과 인덱스 0을 뺀 값이 공차이므로 해당 공차를 difference 변수에 대입해주고 return 값으로 common의 마지막 항에 더해줌
+ - 만약 등비수열이라면 인덱스 2번과 1번을 나눈 값을 ratio 변수에 대입해주고 return 값으로 common의 마지막 항에 ratio 변수를 곱한 값을 반환
+ - 문제 조건에 따르면 등비수열의 공비는 0이 아닌 정수이므로, 나눗셈 연산에서 문제가 발생하지 않음
+ - \*common.last!는 배열의 마지막 요소를 가져옴
+ */
+
