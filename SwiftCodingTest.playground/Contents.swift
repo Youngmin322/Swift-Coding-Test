@@ -73,9 +73,9 @@ func solution(_ my_str: String, _ n: Int) -> [String] {
  ## 예제 실행
  */
 
-print(solution("abc1Addfggg4556b", 6)) // ["abc1Ad", "dfggg4", "556b"]
-print(solution("abcdef123", 3)) // ["abc", "def", "123"]
-print(solution("helloWorld", 4)) // ["hell", "oWor", "ld"]
+//print(solution("abc1Addfggg4556b", 6)) // ["abc1Ad", "dfggg4", "556b"]
+//print(solution("abcdef123", 3)) // ["abc", "def", "123"]
+//print(solution("helloWorld", 4)) // ["hell", "oWor", "ld"]
 
 /*:
  ## 설명
@@ -181,3 +181,39 @@ func solution(_ common:[Int]) -> Int {
  - \*common.last!는 배열의 마지막 요소를 가져옴
  */
 
+
+/*:
+ ## 📌 다음에 올 숫자
+ - 군 전략가 머쓱이는 전쟁 중 적군이 다음과 같은 암호 체계를 사용한다는 것을 알아냈습니다.
+    - 암호화된 문자열 cipher를 주고받습니다.
+    - 그 문자열에서 code의 배수 번째 글자만 진짜 암호입니다.
+ - 문자열 cipher와 정수 code가 매개변수로 주어질 때 해독된 암호 문자열을 return하도록 solution 함수를 완성해주세요.
+
+ ### 🔹 문제 설명
+- 문자열 cipher가 "dfjardstddetckdaccccdegk" 이고 code가 4로 주어진다면 4, 8, 16, 20, 14번째 글자를 합친 "attack을 return 해야 함
+ 
+ ### 🔹 제한 사항
+ - 2 < common의 길이 < 1,000
+ - -1,000 < common의 원소 < 2,000
+    - common의 원소는 모두 정수입니다.
+ - 등차수열 혹은 등비수열이 아닌 경우는 없습니다.
+ - 등비수열인 경우 공비는 0이 아닌 정수입니다.
+ 
+ */
+
+
+ func solution(_ cipher:String, _ code:Int) -> String {
+     return cipher.enumerated()
+     .filter { ($0.offset + 1) % code == 0 }
+     .map { String($0.element) }
+     .joined()
+ }
+
+/*:
+ ## 설명
+ - enumerated()를 사용해서 각 문자에 대해 인덱스를 가져옴
+    - \* enumerated()는 Swift에서 각 요소의 인덱스와 값을 함께 가져오는 메서드 (각 요소가 몇 번째 위치에 있는지 알아야 할 때 사용)
+ - filter 함수를 통해 code의 배수인 인덱스만 남기기 위해 ($0.offset + 1) % code == 0} 을 작성, offset은 기본적으로 0부터 시작하기 때문에 +1을 해줘서 1부터 시작하는 인덱스로 사용
+ - filter로 분류한 것을 String으로 변환해주고 map을 사용해서 하나의 배열로 만듦
+ - joined()를 사용해서 필터링된 문자들을 합쳐 최종 문자열을 반환
+ */
