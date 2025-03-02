@@ -217,3 +217,31 @@ func solution(_ common:[Int]) -> Int {
  - filter로 분류한 것을 String으로 변환해주고 map을 사용해서 하나의 배열로 만듦
  - joined()를 사용해서 필터링된 문자들을 합쳐 최종 문자열을 반환
  */
+
+
+/*:
+ ## 📌 머쓱이보다 키 큰 사람
+ - 머쓱이는 학교에서 키 순으로 줄을 설 때 몇 번째로 서야 하는지 궁금해졌습니다. 머쓱이네 반 친구들의 키가 담긴 정수 배열 array와 머쓱이의 키 height가 매개변수로 주어질 때, 머쓱이보다 키 큰 사람 수를 return 하도록 solution 함수를 완성해보세요.
+
+ ### 🔹 문제 설명
+- 만약 머쓱이의 키(height)가 140이고 친구들의 키(array)가 [145, 130, 160, 180] 이라면 3을 리턴
+ 
+ ### 🔹 제한 사항
+ - 1 ≤ array의 길이 ≤ 100
+ - 1 ≤ height ≤ 200
+ - 1 ≤ array의 원소 ≤ 200
+ 
+ */
+ 
+
+func solution(_ array:[Int], _ height:Int) -> Int {
+    let tallerPeople = array.filter{ $0 > height }
+    return tallerPeople.count
+}
+
+
+/*:
+ ## 설명
+ - 우선 머쓱이보다 키가 큰 사람을 분류하기 위해 filter 함수를 사용하고 해당 값을 담을 변수(tallerPeople)를 선언
+ - return 값을 tallerPeople로 하고 반환해야 하는 값이 키가 아닌 키 큰 사람의 수이므로 tallerPeople.count로 개수를 반환할 수 있도록 작성
+ */
