@@ -16,7 +16,7 @@ import Foundation
  - `0 ≤ index_list[i] < my_string.count`
  */
 
-func solution(_ my_string: String, _ index_list: [Int]) -> String {
+func solution1(_ my_string: String, _ index_list: [Int]) -> String {
     let char = Array(my_string)  // 문자열을 문자 배열로 변환
     return index_list.map { String(char[$0]) }.joined()
 }
@@ -27,11 +27,11 @@ func solution(_ my_string: String, _ index_list: [Int]) -> String {
 
 let my_string1 = "cvsgiorszzzmrpaqpe"
 let index_list1 = [16, 6, 5, 3, 12, 14, 11, 11, 17, 12, 7]
-solution(my_string1, index_list1)  // "programmers"
+solution1(my_string1, index_list1)  // "programmers"
 
 let my_string2 = "zpiaz"
 let index_list2 = [1, 2, 0, 0, 3]
-solution(my_string2, index_list2)  // "pizza"
+solution1(my_string2, index_list2)  // "pizza"
 
 /*:
  ## 설명
@@ -56,7 +56,7 @@ solution(my_string2, index_list2)  // "pizza"
  
  */
 
-func solution(_ my_str: String, _ n: Int) -> [String] {
+func solution2(_ my_str: String, _ n: Int) -> [String] {
     var result: [String] = []
     let length = my_str.count
     
@@ -106,7 +106,7 @@ func solution(_ my_str: String, _ n: Int) -> [String] {
  
  */
 
-func solution(_ quiz:[String]) -> [String] {
+func solution3(_ quiz:[String]) -> [String] {
     var answer: [String] = []
     
     for q in quiz {
@@ -161,7 +161,7 @@ func solution(_ quiz:[String]) -> [String] {
  
  */
 
-func solution(_ common:[Int]) -> Int {
+func solution4(_ common:[Int]) -> Int {
     
     if common[1] - common[0] == common[2] - common[1] {
         let difference = common[1] - common[0]
@@ -202,7 +202,7 @@ func solution(_ common:[Int]) -> Int {
  */
 
 
- func solution(_ cipher:String, _ code:Int) -> String {
+ func solution5(_ cipher:String, _ code:Int) -> String {
      return cipher.enumerated()
      .filter { ($0.offset + 1) % code == 0 }
      .map { String($0.element) }
@@ -234,7 +234,7 @@ func solution(_ common:[Int]) -> Int {
  */
  
 
-func solution(_ array:[Int], _ height:Int) -> Int {
+func solution6(_ array:[Int], _ height:Int) -> Int {
     let tallerPeople = array.filter{ $0 > height }
     return tallerPeople.count
 }
@@ -260,7 +260,7 @@ func solution(_ array:[Int], _ height:Int) -> Int {
  */
 
 
-func solution(_ my_string:String) -> String {
+func solution7(_ my_string:String) -> String {
     return my_string.filter { !["a", "e", "i", "o", "u"].contains($0) }
     
 }
@@ -283,12 +283,12 @@ func solution(_ my_string:String) -> String {
  */
 
 
-func solution(_ chicken:Int) -> Int {
+func solution8(_ chicken:Int) -> Int {
     if chicken < 10 {
         return 0
     }
     let service = chicken / 10
-    return service + solution(service + (chicken % 10))
+    return service + solution8(service + (chicken % 10))
 }
 
 /*:
@@ -300,6 +300,7 @@ func solution(_ chicken:Int) -> Int {
     - 즉, 현재 서비스 치킨에서 받은 쿠폰과 기존의 남은 쿠폰을 합쳐서 재귀 호출을 함
 - \* 재귀를 사용하는 이유는 치킨을 먹으면 쿠폰이 나오고, 쿠폰이 10장이 넘으면 다시 치킨을 받을 수 있는 구조이므로 계속 반복됨 즉, 한 번 치킨을 서비스로 받은 후 그 서비스 치킨에서 또 쿠폰이 나오는 과정을 계속 반복해야 하기 때문에 재귀를 사용
  */
+
 
 
 
@@ -319,15 +320,43 @@ func solution(_ chicken:Int) -> Int {
  */
 
 
-func Solution(_ rsp:String) -> String {
+func Solution9(_ rsp:String) -> String {
     let mapping: [String: String] = ["2": "0", "0": "5", "5": "2"]
     
     return rsp.map { mapping[String($0)] ?? "?" }.joined()
 }
-
-/*:
- ## 설명
- - 각 케이스 별로 리턴해야 하는 것이 정해져 있기 때문에 key value 매핑을 사용해서 2는 0, 0은 5, 5는 2로 치환을 해줌
- - rsp의 각 문자에 대해 mapping 딕셔너리를 사용하여 변환하고, 변환된 문자들을 joined()를 사용해서 다시 합쳐서 return
- */
+    
+    /*:
+     ## 설명
+     - 각 케이스 별로 리턴해야 하는 것이 정해져 있기 때문에 key value 매핑을 사용해서 2는 0, 0은 5, 5는 2로 치환을 해줌
+     - rsp의 각 문자에 대해 mapping 딕셔너리를 사용하여 변환하고, 변환된 문자들을 joined()를 사용해서 다시 합쳐서 return
+     */
+    
+    /*:
+     ## 📌 짝수의 합
+     - 정수 n이 주어질 때, n이하의 짝수를 모두 더한 값을 return 하도록 solution 함수를 작성해주세요.
+     
+     ### 🔹 문제 설명
+     - 만약 n이 10이라면 2 + 4 + 6 + 8 + 10 = 30이므로 30을 return
+     
+     ### 🔹 제한 사항
+     - 0 < n ≤ 1000
+     */
+    
+    func solution9(_ n:Int) -> Int {
+        var sum = 0
+        for i in 1...n {
+            if i % 2 == 0 {
+                sum += i
+            }
+        }
+        return sum
+    }
+    
+    /*:
+     ## 설명
+     - 더한 값을 저장할 변수(sum)를 선언하고 0으로 초기화
+     - for문과 if문을 이용해서 1부터 정수 n까지 i 를 2로 나누어서 0이 되는 값들만 sum 변수에 더해줌
+     - 해당 값들이 다 더해진 sum 변수를 return
+     */
 
