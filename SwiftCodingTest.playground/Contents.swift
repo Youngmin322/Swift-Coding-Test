@@ -16,7 +16,7 @@ import Foundation
  - `0 ≤ index_list[i] < my_string.count`
  */
 
-func solution(_ my_string: String, _ index_list: [Int]) -> String {
+func solution1(_ my_string: String, _ index_list: [Int]) -> String {
     let char = Array(my_string)  // 문자열을 문자 배열로 변환
     return index_list.map { String(char[$0]) }.joined()
 }
@@ -27,11 +27,11 @@ func solution(_ my_string: String, _ index_list: [Int]) -> String {
 
 let my_string1 = "cvsgiorszzzmrpaqpe"
 let index_list1 = [16, 6, 5, 3, 12, 14, 11, 11, 17, 12, 7]
-solution(my_string1, index_list1)  // "programmers"
+solution1(my_string1, index_list1)  // "programmers"
 
 let my_string2 = "zpiaz"
 let index_list2 = [1, 2, 0, 0, 3]
-solution(my_string2, index_list2)  // "pizza"
+solution1(my_string2, index_list2)  // "pizza"
 
 /*:
  ## 설명
@@ -56,7 +56,7 @@ solution(my_string2, index_list2)  // "pizza"
  
  */
 
-func solution(_ my_str: String, _ n: Int) -> [String] {
+func solution2(_ my_str: String, _ n: Int) -> [String] {
     var result: [String] = []
     let length = my_str.count
     
@@ -106,7 +106,7 @@ func solution(_ my_str: String, _ n: Int) -> [String] {
  
  */
 
-func solution(_ quiz:[String]) -> [String] {
+func solution3(_ quiz:[String]) -> [String] {
     var answer: [String] = []
     
     for q in quiz {
@@ -161,7 +161,7 @@ func solution(_ quiz:[String]) -> [String] {
  
  */
 
-func solution(_ common:[Int]) -> Int {
+func solution4(_ common:[Int]) -> Int {
     
     if common[1] - common[0] == common[2] - common[1] {
         let difference = common[1] - common[0]
@@ -202,7 +202,7 @@ func solution(_ common:[Int]) -> Int {
  */
 
 
- func solution(_ cipher:String, _ code:Int) -> String {
+ func solution5(_ cipher:String, _ code:Int) -> String {
      return cipher.enumerated()
      .filter { ($0.offset + 1) % code == 0 }
      .map { String($0.element) }
@@ -234,7 +234,7 @@ func solution(_ common:[Int]) -> Int {
  */
  
 
-func solution(_ array:[Int], _ height:Int) -> Int {
+func solution6(_ array:[Int], _ height:Int) -> Int {
     let tallerPeople = array.filter{ $0 > height }
     return tallerPeople.count
 }
@@ -260,7 +260,7 @@ func solution(_ array:[Int], _ height:Int) -> Int {
  */
 
 
-func solution(_ my_string:String) -> String {
+func solution7(_ my_string:String) -> String {
     return my_string.filter { !["a", "e", "i", "o", "u"].contains($0) }
     
 }
@@ -283,12 +283,12 @@ func solution(_ my_string:String) -> String {
  */
 
 
-func solution(_ chicken:Int) -> Int {
+func solution8(_ chicken:Int) -> Int {
     if chicken < 10 {
         return 0
     }
     let service = chicken / 10
-    return service + solution(service + (chicken % 10))
+    return service + solution8(service + (chicken % 10))
 }
 
 /*:
@@ -319,7 +319,7 @@ func solution(_ chicken:Int) -> Int {
  */
 
 
-func Solution(_ rsp:String) -> String {
+func Solution9(_ rsp:String) -> String {
     let mapping: [String: String] = ["2": "0", "0": "5", "5": "2"]
     
     return rsp.map { mapping[String($0)] ?? "?" }.joined()
@@ -331,3 +331,37 @@ func Solution(_ rsp:String) -> String {
  - rsp의 각 문자에 대해 mapping 딕셔너리를 사용하여 변환하고, 변환된 문자들을 joined()를 사용해서 다시 합쳐서 return
  */
 
+
+/*:
+ ## 📌 마지막 두 원소
+ - 정수 리스트 num_list가 주어질 때, 마지막 원소가 그전 원소보다 크면 마지막 원소에서 그전 원소를 뺀 값을 마지막 원소가 그전 원소보다 크지 않다면 마지막 원소를 두 배한 값을 추가하여 return하도록 solution 함수를 완성해주세요.
+
+ ### 🔹 문제 설명
+ - num_list가 [2, 1, 6]라고 주어졌다면 마지막 원소인 6이 그 전 원소인 1보다 크기 때문에 6 - 1인 5를 추가한 [2, 1, 6, 5]를 리턴
+ - num_list가 [5, 2, 1, 7, 5]라고 주어졌다면 마지막 원소인 5가 그 전 원소인 7보다 크지 않기 때문에 5의 2배인 10을 추가한 [5, 2, 1, 7, 5, 10]을 리턴
+
+ 
+ ### 🔹 제한 사항
+ - 2 ≤ num_list의 길이 ≤ 10
+ - 1 ≤ num_list의 원소 ≤ 9
+ */
+
+
+func solution10(_ num_list:[Int]) -> [Int] {
+    let lastValue = num_list[num_list.count - 1]
+    let secondLastValue = num_list[num_list.count - 2]
+    var subValue = lastValue - secondLastValue
+    
+    if lastValue > secondLastValue {
+        return num_list + [subValue]
+    } else {
+     return num_list + [lastValue * 2]
+    }
+}
+
+/*:
+ ## 설명
+ - 마지막 원소를 담을 변수(lastValue)와 마지막 원소에서 그 전 원소의 값을 저장할 변수(secondLastValue)를 선언해주고 두 값을 뺀 값을 저장할 변수(subValue)를 선언함
+ - if문으로 마지막 원소가 더 크다면 기존 배열(num_list)에 두 값은 뺀 변수를 추가해주고 return
+ - 그 외라면 기존 배열에 마지막 원소에 2배를 한 값을 리턴
+ */
