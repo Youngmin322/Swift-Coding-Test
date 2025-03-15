@@ -469,3 +469,78 @@ func solution12(_ my_string:String, _ n:Int) -> String {
  ## 설명
  - prefix 메서드는 앞에서부터 n개의 문자를 가져오기 때문에 prefix를 사용해서 n개 만큼 가져오고 가져온 값을 변수(result)에 담고 해당 변수를 return
  */
+
+/*:
+ ## 📌 할 일 목록
+ - 오늘 해야 할 일이 담긴 문자열 배열 todo_list와 각각의 일을 지금 마쳤는지를 나타내는 boolean 배열 finished가 매개변수로 주어질 때, todo_list에서 아직 마치지 못한 일들을 순서대로 담은 문자열 배열을 return 하는 solution 함수를 작성해 주세요.
+ ### 🔹 문제 설명
+- todo_list, finished, result가 각각 ["problemsolving", "practiceguitar", "swim", "studygraph"]    [true, false, true, false]    ["practiceguitar", "studygraph"]
+ - todo_list 중에서 "problemsolving"과 "swim"은 마쳤고, "practiceguitar"와 "studygraph"는 아직 마치지 못했으므로 todo_list에서 나온 순서대로 담은 문자열 배열 ["practiceguitar", "studygraph"]를 return 합니다.
+
+ 
+ ### 🔹 제한 사항
+ - 1 ≤ todo_list의 길이 1 ≤ 100
+ - 2 ≤ todo_list의 원소의 길이 ≤ 20
+    - todo_list의 원소는 영소문자로만 이루어져 있습니다.
+    - todo_list의 원소는 모두 서로 다릅니다.
+ - finished[i]는 true 또는 false이고 true는 todo_list[i]를 마쳤음을, false는 아직 마치지 못했음을 나타냅니다.
+ - 아직 마치지 못한 일이 적어도 하나 있습니다.
+ */
+
+
+
+func solution13(_ todo_list:[String], _ finished:[Bool]) -> [String] {
+    var result: [String] = []
+    
+    for (index, isFinished) in finished.enumerated() {
+        if !isFinished {
+            result.append(todo_list[index])
+        }
+    }
+    return result
+}
+
+/*:
+ ## 설명
+ - todo_list와 finished의 인덱스를 이용
+ - enumerated()를 사용해서 배열의 각 요소에 대해 인덱스와 요소 값을 함께 제공하는 시퀀스를 반환
+ - 만약 finished 배열이 [true, false, true] 라면
+    - 첫 번째 반복에서는 index = 0, isFinished = true
+    - 두 번째 반복에서는 index = 1, isFinished = false
+    - 세 번째 반복에서는 index = 2, isFinished = true
+ - if 조건문을 사용해서 isFinished의 값이 false일 때만 내부 코드를 실행
+ - todo_list[index]로 현재 인덱스에 해당하는 할 일 항복에 접근
+ - 그 항목을 result 배열에 추가한 후 result를 return
+ */
+
+
+/*:
+ ## 📌 n보다 커질 때까지 더하기
+ - numbers, n, result가 각각 [34, 5, 71, 29, 100, 34], 123, 139로 주어졌다면
+ -
+
+ 
+ ### 🔹 제한 사항
+ - 1 ≤ numbers의 길이 ≤ 100
+ - 1 ≤ numbers의 원소 ≤ 100
+ - 0 ≤ n < numbers의 모든 원소의 합
+ */
+
+func solution14(_ numbers:[Int], _ n:Int) -> Int {
+    var sum = 0
+    for numbers in numbers {
+        sum += numbers
+        if sum > n {
+            break
+        }
+    }
+    return sum
+}
+
+/*:
+ ## 설명
+ - numbers의 합을 저장할 sum 변수 선언
+ - for문을 이용해서 numbers를 순서대로 더해주고 sum에 합을 저장
+ - if문을 사용해서 sum의 값이 n보다 커지면 중단
+ - sum을 return
+ */
