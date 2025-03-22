@@ -659,3 +659,49 @@ func solution16(_ start_num:Int, _ end_num:Int) -> [Int] {
  - append 함수로 i를 a배열에 저장
  - a를 그대로 리턴하면 오름차순으로 값이 리턴되므로 reversed() 함수를 사용해서 값을 내림차순으로 변경한 뒤 해당 값을 리턴
  */
+
+/*:
+ ## 📌 n번째 원소부터
+ MARK: n번째 원소부터
+ 
+ - 정수 리스트 num_list와 정수 n이 주어질 때, n 번째 원소부터 마지막 원소까지의 모든 원소를 담은 리스트를 return하도록 solution 함수를 완성해주세요.
+ 
+ 
+ ### 🔹 문제 설명
+ - num_list가 [5, 2, 1, 7, 5] 이고 n이 2 라면 2번째부터 나머지 배열의 값을 리턴해야 하므로 [2, 1, 7, 5]를 리턴
+ 
+ 
+ ### 🔹 제한 사항
+ - 2 ≤ num_list의 길이 ≤ 30
+ - 1 ≤ num_list의 원소 ≤ 9
+ - 1 ≤ n ≤ num_list의 길이
+ */
+
+func solution17(_ num_list:[Int], _ n:Int) -> [Int] {
+    var sliceArray = Array(num_list[(n - 1)...])
+    
+    return sliceArray
+}
+
+/*:
+ ## 설명
+ - num_list[(n - 1)...]를 사용해 n번째 인덱스(배열은 0부터 시작하므로 n-1)부터 끝까지의 부분 배열을 생성
+ - 생성된 부분 배열을 Array()로 변환하여 새로운 배열 sliceArray에 저장
+ - 최종적으로 sliceArray를 반환하여 원본 배열의 n번째 요소부터 끝까지의 요소들을 포함하는 새 배열을 return
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
