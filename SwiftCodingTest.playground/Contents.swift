@@ -823,3 +823,51 @@ func solution(_ binomial:String) -> Int {
     - 단, 이때 a와 b는 Int로 타입 변환을 진행
  - switch case문으로 각각의 연산에 맞게 계산을 진행하고 해당 값을 return
  */
+
+
+/*:
+ ## 📌 문자열 잘라서 정렬하기
+ MARK: 문자열 잘라서 정렬하기
+ 
+ - 문자열 myString이 주어집니다. "x"를 기준으로 해당 문자열을 잘라내 배열을 만든 후 사전순으로 정렬한 배열을 return 하는 solution 함수를 완성해 주세요. 단, 빈 문자열은 반환할 배열에 넣지 않습니다.
+ 
+ 
+ ### 🔹 문제 설명
+ - myString이 "axbxcxdx" 이라면 return 값은 ["a","b","c","d"]이 되어야 함
+ 
+ ### 🔹 제한 사항
+ - 1 ≤ myString ≤ 100,000
+    - myString은 알파벳 소문자로 이루어진 문자열입니다.
+ */
+
+func solution(_ myString:String) -> [String] {
+    let cutString = myString.components(separatedBy: "x").filter { !$0.isEmpty}
+    return cutString.sorted()
+}
+
+/*
+ ## 설명
+ - myString을 x를 기준으로 문자열을 잘라내야 하기 때문에 components를 사용해서 문자열을 잘라냄
+ - 문제에서 빈 문자열은 반환할 배열에 넣지 않는다고 했으므로 filter 함수를 사용해서 빈 문자열을 제외하고 모두 뽑아냄
+ - 조건에 맞게 잘라낸 배열을 cutString 변수에 대입하고 해당 변수를 sorted()를 사용해서 사전순으로 정렬하고 해당 값을 return
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
