@@ -861,7 +861,7 @@ func solution21(_ myString:String) -> [String] {
  
  
  ### 🔹 문제 설명
- - myString이 "axbxcxdx" 이라면 return 값은 ["a","b","c","d"]이 되어야 함
+ -
  
  ### 🔹 제한 사항
  - 1 ≤ my_string의 길이 ≤ 1,000
@@ -882,7 +882,7 @@ func solution22(_ my_string:String, _ alp:String) -> String {
 
 /*
  ## 설명
-- my_string에서 한 글자씩 순회해야 하기 때문에 for문을 사용해서 문자열의 각 문자를 확인
+ - my_string에서 한 글자씩 순회해야 하기 때문에 for문을 사용해서 문자열의 각 문자를 확인
  - 각 문자를 alp와 비교하기 위해 Character(alp)로 타입을 맞추고 비교
  - if else문을 사용해서 만약 문자가 alp와 같다고 uppercased()를 사용해서 해당 문자를 대문자로 변환한 뒤 upperString에 붙임
  - 다르면 원래 문자를 그대로 upperString에 붙임
@@ -890,20 +890,44 @@ func solution22(_ my_string:String, _ alp:String) -> String {
  */
 
 
+/*:
+ ## 📌 1로 만들기
+ MARK: 1로 만들기
+ 
+ - 정수가 있을 때, 짝수라면 반으로 나누고, 홀수라면 1을 뺀 뒤 반으로 나누면, 마지막엔 1이 됩니다. 정수들이 담긴 리스트 num_list가 주어질 때, num_list의 모든 원소를 1로 만들기 위해서 필요한 나누기 연산의 횟수를 return하도록 solution 함수를 완성해주세요.
+ 
+ 
+ ### 🔹 문제 설명
+ - my_string이 "programmers", alp가 "p"라면 result는 "Programmers"
+ 
+ ### 🔹 제한 사항
+ - 3 ≤ num_list의 길이 ≤ 15
+ - 1 ≤ num_list의 원소 ≤ 30
+ */
 
+func solution23(_ num_list:[Int]) -> Int {
+    var totalCount = 0
+    
+    for num in num_list {
+        var n = num
+        while n > 1 {
+            n /= 2
+            totalCount += 1
+        }
+    }
+    return totalCount
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+/*
+ ## 설명
+ - 연산 횟수를 저장할 변수 totalCount를 선언
+ - for문으로 리스트 안의 숫자 하나씩 반복
+ - 현재 숫자를 임시 변수로 저장 (Swift에서 for루프 변수(여기에서는 num)는 let이기 때문
+ - 1을 만드는 게 목적이므로 while문으로 n이 1보다 클 동안 계속 반복
+ - n을 2로 나눔(홀수인 경우는 자연스럽게 n - 1이 된 후 나누는 것과 같기 때문에 별도 처리 x)
+ - 연산이 진행 됐으므로 totalCount에 1을 증가
+ - totalCount를 return
+ */
 
 
 
