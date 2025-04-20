@@ -794,7 +794,7 @@ func solution19(_ arr:[Int], _ idx:Int) -> Int {
 
 import Foundation
 
-func solution(_ binomial:String) -> Int {
+func solution20(_ binomial:String) -> Int {
     let components = binomial.split(separator: " ")
     
     if components.count == 3,
@@ -840,7 +840,7 @@ func solution(_ binomial:String) -> Int {
     - myString은 알파벳 소문자로 이루어진 문자열입니다.
  */
 
-func solution(_ myString:String) -> [String] {
+func solution21(_ myString:String) -> [String] {
     let cutString = myString.components(separatedBy: "x").filter { !$0.isEmpty}
     return cutString.sorted()
 }
@@ -852,6 +852,42 @@ func solution(_ myString:String) -> [String] {
  - 조건에 맞게 잘라낸 배열을 cutString 변수에 대입하고 해당 변수를 sorted()를 사용해서 사전순으로 정렬하고 해당 값을 return
  */
 
+
+/*:
+ ## 📌 특정한 문자를 대문자로 바꾸기
+ MARK: 특정한 문자를 대문자로 바꾸기
+ 
+ - 영소문자로 이루어진 문자열 my_string과 영소문자 1글자로 이루어진 문자열 alp가 매개변수로 주어질 때, my_string에서 alp에 해당하는 모든 글자를 대문자로 바꾼 문자열을 return 하는 solution 함수를 작성해 주세요.
+ 
+ 
+ ### 🔹 문제 설명
+ - myString이 "axbxcxdx" 이라면 return 값은 ["a","b","c","d"]이 되어야 함
+ 
+ ### 🔹 제한 사항
+ - 1 ≤ my_string의 길이 ≤ 1,000
+ */
+
+func solution22(_ my_string:String, _ alp:String) -> String {
+    var upperString = ""
+    for ch in my_string {
+        if ch == Character(alp) {
+            upperString += ch.uppercased()
+        } else {
+            upperString += String(ch)
+        }
+    }
+    
+    return upperString
+}
+
+/*
+ ## 설명
+- my_string에서 한 글자씩 순회해야 하기 때문에 for문을 사용해서 문자열의 각 문자를 확인
+ - 각 문자를 alp와 비교하기 위해 Character(alp)로 타입을 맞추고 비교
+ - if else문을 사용해서 만약 문자가 alp와 같다고 uppercased()를 사용해서 해당 문자를 대문자로 변환한 뒤 upperString에 붙임
+ - 다르면 원래 문자를 그대로 upperString에 붙임
+ - 마지막으로 upperString을 return
+ */
 
 
 
