@@ -764,7 +764,7 @@ func solution19(_ arr:[Int], _ idx:Int) -> Int {
     }
     return -1
 }
-/*
+/*:
  ## 설명
  
  - 정수 배열 arr가 주어지고, 원소는 1 또는 0으로 구성됨
@@ -816,7 +816,7 @@ func solution20(_ binomial:String) -> Int {
     return 0
 }
 
-/*
+/*:
  ## 설명
  - binomial 문자열을 공백 기준으로 나누기 위해 components 상수를 선언
  - if let문법으로 components의 개수가 3개라면 각각의 요소를 a, b, op 변수에 대입(조건식에서 알 수 있듯이 binomial은 형태가 고정되어 있으므로 항상 개수가 3임)
@@ -845,7 +845,7 @@ func solution21(_ myString:String) -> [String] {
     return cutString.sorted()
 }
 
-/*
+/*:
  ## 설명
  - myString을 x를 기준으로 문자열을 잘라내야 하기 때문에 components를 사용해서 문자열을 잘라냄
  - 문제에서 빈 문자열은 반환할 배열에 넣지 않는다고 했으므로 filter 함수를 사용해서 빈 문자열을 제외하고 모두 뽑아냄
@@ -880,7 +880,7 @@ func solution22(_ my_string:String, _ alp:String) -> String {
     return upperString
 }
 
-/*
+/*:
  ## 설명
  - my_string에서 한 글자씩 순회해야 하기 때문에 for문을 사용해서 문자열의 각 문자를 확인
  - 각 문자를 alp와 비교하기 위해 Character(alp)로 타입을 맞추고 비교
@@ -918,7 +918,7 @@ func solution23(_ num_list:[Int]) -> Int {
     return totalCount
 }
 
-/*
+/*:
  ## 설명
  - 연산 횟수를 저장할 변수 totalCount를 선언
  - for문으로 리스트 안의 숫자 하나씩 반복
@@ -960,7 +960,7 @@ func solution24(_ num_list:[Int]) -> Int {
     }
 }
 
-/*
+/*:
  ## 설명
  - num_list의 길이를 담을 변수와 num_list의 합, 곱을 담을 변수를 각각 선언
  - if문으로 num_list의 길이가 11 이상이라면 reduce 함수로 0부터 쭉 모아서 더해주고 sum을 return
