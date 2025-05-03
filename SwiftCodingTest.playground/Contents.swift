@@ -1057,3 +1057,39 @@ func solution27(_ myString:String, _ pat:String) -> Int {
  - 두 문자열을 소문자로 변환하여 대소문자 구분 없이 비교
  - contains 메서드로 문자열 포함 여부를 확인하여 결과 반환
  */
+
+
+/*:
+ ## 📌 A 강조하기
+ MARK: A 강조하기
+ 
+ - 문자열 myString이 주어집니다. myString에서 알파벳 "a"가 등장하면 전부 "A"로 변환하고, "A"가 아닌 모든 대문자 알파벳은 소문자 알파벳으로 변환하여 return 하는 solution 함수를 완성하세요.
+ 
+ ### 🔹 문제 설명
+ - myString이 "abstract algebra" 라면 "AbstrAct AlgebrA"를 return
+ 
+ ### 🔹 제한 사항
+ - 1 ≤ myString의 길이 ≤ 20
+     - myString은 알파벳으로 이루어진 문자열입니다.
+
+ */
+
+func solution28(_ myString:String) -> String {
+    let lowercase = myString.lowercased()
+    let result = lowercase.map { $0 == "a" ? "A" : String($0)} .joined()
+    
+    return result
+    
+    
+    // 더 효율적인 다른 풀이
+    func anotherSolution28(_ myString:String) -> String {
+        return myString.lowercased().replacingOccurrences(of: "a", with: "A")
+    }
+}
+
+/*:
+ ## 설명
+ - lowercased() 함수로 전체 문자열을 소문자로 변환하고 lowercase 변수에 저장
+ - lowercase에 있는 문자열 중에서 map함수로 소문자 a가 있다면 대문자 A로 변환하고 joined() 함수로 다시 lowercase에 넣음
+ - 해당 결과를 return
+ */
