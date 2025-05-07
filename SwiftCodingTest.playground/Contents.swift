@@ -1225,3 +1225,75 @@ func solution32(_ a:Int, _ b:Int) -> Int {
  - 세 번째 조건은 a와 b가 모두 짝수일 때 해당되며, 위 조건에 해당하지 않는 나머지 경우를 처리
  - 이때 abs(a - b)는 a와 b의 차이를 절댓값으로 반환함 (음수 방지)
  */
+
+
+/*:
+ ## 📌 숫자 짝꿍
+ MARK: 숫자 짝꿍
+ 
+ - 두 정수 X, Y의 임의의 자리에서 공통으로 나타나는 정수 k(0 ≤ k ≤ 9)들을 이용하여 만들 수 있는 가장 큰 정수를 두 수의 짝꿍이라 합니다(단, 공통으로 나타나는 정수 중 서로 짝지을 수 있는 숫자만 사용합니다). X, Y의 짝꿍이 존재하지 않으면, 짝꿍은 -1입니다. X, Y의 짝꿍이 0으로만 구성되어 있다면, 짝꿍은 0입니다.
+ 
+ - 예를 들어, X = 3403이고 Y = 13203이라면, X와 Y의 짝꿍은 X와 Y에서 공통으로 나타나는 3, 0, 3으로 만들 수 있는 가장 큰 정수인 330입니다. 다른 예시로 X = 5525이고 Y = 1255이면 X와 Y의 짝꿍은 X와 Y에서 공통으로 나타나는 2, 5, 5로 만들 수 있는 가장 큰 정수인 552입니다(X에는 5가 3개, Y에는 5가 2개 나타나므로 남는 5 한 개는 짝 지을 수 없습니다.) 두 정수 X, Y가 주어졌을 때, X, Y의 짝꿍을 return하는 solution 함수를 완성해주세요.
+ 
+ 
+ ### 🔹 문제 설명
+ - X는 "100", Y는 "2345"면 -1을 return
+ - X는 "100", Y는 "203045"면 0을 return
+ - X는 "100", Y는 "123450"면 10을 return
+ 
+ - a가 6 b가 1라면 14를 return
+ - a가 2 b가 4라면 2를 return
+ 
+ ### 🔹 제한 사항
+ - 3 ≤ X, Y의 길이(자릿수) ≤ 3,000,000입니다.
+ - X, Y는 0으로 시작하지 않습니다.
+ - X, Y의 짝꿍은 상당히 큰 정수일 수 있으므로, 문자열로 반환합니다.
+
+ */
+
+func solution33(_ X:String, _ Y:String) -> String {
+    var countX = Array(repeating: 0, count: 10)
+    var countY = Array(repeating: 0, count: 10)
+    
+    for ch in X {
+        if let digit = ch.wholeNumberValue {
+            countX[digit] += 1
+        }
+    }
+    for ch in Y {
+        if let digit = ch.wholeNumberValue {
+            countY[digit] += 1
+        }
+    }
+    var result = ""
+    
+    for i in stride(from: 9, through: 0, by: -1) {
+        let commonCount = min(countX[i], countY[i])
+        if commonCount > 0 {
+            result += String(repeating: "\(i)", count: commonCount)
+        }
+    }
+    
+    if result.isEmpty {
+        return "-1"
+    } else if result.first == "0" {
+        return "0"
+    } else {
+        return result
+    }
+}
+
+/*:
+ ## 설명
+ - 두 문자열 X와 Y에서 각 숫자(0~9)의 등장 횟수를 배열(countX, countY)에 저장
+ - 각 숫자마다 등장 횟수를 기록하면, 숫자별로 얼마나 겹치는지 빠르게 알 수 있음
+ - 이후 9부터 0까지 숫자를 내림차순으로 탐색
+    - 가장 큰 수를 만들기 위해 높은 숫자부터 결과 문자열에 추가
+ - 각 숫자 i에 대해 X와 Y 모두에서 나타나는 개수의 최솟값(min)을 계산하여 짝 지을 수 있는 개수를 구함
+    - 예: X에 5가 3번, Y에 5가 2번 → 짝 지을 수 있는 5는 2개
+    - 이때 String(repeating: "\(i)", count: 개수)를 사용해 해당 숫자를 여러 번 붙임
+ - 최종적으로 만들어진 문자열 result가 다음 조건 중 하나에 해당할 경우 예외 처리
+    - 아무 숫자도 짝지어지지 않은 경우 → result는 빈 문자열("") → "-1" 반환
+    - 결과가 "000..."처럼 0으로만 구성된 경우 → "0" 반환
+ - 위 두 경우 외에는 result 문자열을 그대로 반환
+ */
