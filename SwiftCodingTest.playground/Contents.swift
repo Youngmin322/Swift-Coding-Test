@@ -1339,3 +1339,57 @@ func solution34(_ num_list: [Int]) -> Int {
    - 즉, 원소의 곱이 원소의 합의 제곱보다 작으면 1 반환 (삼항 연산자를 사용)
    - 그렇지 않으면 0 반환
  */
+
+
+/*:
+ ## 📌 숫자 문자열과 영단어
+ MARK: 숫자 문자열과 영단어
+ 
+ - 네오와 프로도가 숫자놀이를 하고 있습니다. 네오가 프로도에게 숫자를 건넬 때 일부 자릿수를 영단어로 바꾼 카드를 건네주면 프로도는 원래 숫자를 찾는 게임입니다.
+
+ - 다음은 숫자의 일부 자릿수를 영단어로 바꾸는 예시입니다.
+
+ - 1478 → "one4seveneight"
+ - 234567 → "23four5six7"
+ - 10203 → "1zerotwozero3"
+ - 이렇게 숫자의 일부 자릿수가 영단어로 바뀌어졌거나, 혹은 바뀌지 않고 그대로인 문자열 s가 매개변수로 주어집니다. s가 의미하는 원래 숫자를 return 하도록 solution 함수를 완성해주세요.
+  
+ 
+ ### 🔹 문제 설명
+ - num_list가 [3, 4, 5, 2, 1]이라면 1을 return
+ - num_list가 [5, 7, 8, 3]이라면 0을 return
+ 
+ - a가 6 b가 1라면 14를 return
+ - a가 2 b가 4라면 2를 return
+ 
+ ### 🔹 제한 사항
+ - 1 ≤ s의 길이 ≤ 50
+ - s가 "zero" 또는 "0"으로 시작하는 경우는 주어지지 않습니다.
+ - return 값이 1 이상 2,000,000,000 이하의 정수가 되는 올바른 입력만 s로 주어집니다.
+
+ */
+
+func solution35(_ s:String) -> Int {
+    let numberWords: [String: String] = [
+        "zero" : "0", "one" : "1", "two" : "2", "three" : "3", "four" : "4",
+        "five" : "5", "six" : "6", "seven" : "7", "eight" : "8", "nine" : "9"
+    ]
+    
+    var result = s
+    
+    for (word, digit) in numberWords {
+        result = result.replacingOccurrences(of: word, with: digit)
+    }
+    return Int(result)!
+}
+
+/*:
+ ## 설명
+ - 먼저 numberWords 딕셔너리 선언해서 "영단어" -> "숫자" 형태로 변환 규칙을 저장
+ - result 변수에 s 매개변수를 복사해서 사용(s는 함수 매개변수이기 때문에 상수로 간주되므로 수정 가능한 result를 선언)
+ - for 루프를 통해서 "zero"부터 "nine"까지 차례로 변환
+ - replacingOccurrences(of: with:) 함수를 사용해서 word를 digit으로 바꿈
+ - 변환이 끝나면 result를 Int로 형변환을 하고 강제 언래핑을 한 후 return
+    - 강제 언래핑을 하는 이유는 Int(...)는 항상 옵셔널 타입으로 반환하고 이 문제에서는 nil이 없기 때문에 강제 언래핑을 사용함
+    - 만약 문제에서 nil도 포함이 된다면 if let or guard let을 사용해서 옵셔널 바인딩을 해야 함
+ */
