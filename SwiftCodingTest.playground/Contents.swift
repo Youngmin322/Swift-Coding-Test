@@ -1393,3 +1393,31 @@ func solution35(_ s:String) -> Int {
     - 강제 언래핑을 하는 이유는 Int(...)는 항상 옵셔널 타입으로 반환하고 이 문제에서는 nil이 없기 때문에 강제 언래핑을 사용함
     - 만약 문제에서 nil도 포함이 된다면 if let or guard let을 사용해서 옵셔널 바인딩을 해야 함
  */
+
+
+/*:
+ ## 📌 0 떼기
+ MARK: 0 떼기
+ 
+ - 정수로 이루어진 문자열 n_str이 주어질 때, n_str의 가장 왼쪽에 처음으로 등장하는 0들을 뗀 문자열을 return하도록 solution 함수를 완성해주세요.
+ 
+ ### 🔹 문제 설명
+ - n_str이 "0010"이라면 "10"을 return
+ 
+ ### 🔹 제한 사항
+ - 2 ≤ n_str ≤ 10
+ - n_str이 "0"으로만 이루어진 경우는 없습니다.
+ */
+
+func solution36(_ n_str:String) -> String {
+    let result = n_str.drop(while: { $0 == "0"})
+    return String(result)
+}
+
+/*:
+ ## 설명
+ - drop(while:)을 사용해서 문자 하나하나를 받아서 "0"일 때만 0을 제거하도록 조건을 설정
+ - (0이 연속으로 2번 나오면, 첫 번째 0에서 해당 조건이 성공 했으므로 두 번째 0에서도 해당 동작 수행)
+ - 0이 안 나오는 순간부터는 남은 문자들을 유지
+ - 해당 결과는 Substring 타입이므로 result를 String()으로 감싸서 return
+ */
