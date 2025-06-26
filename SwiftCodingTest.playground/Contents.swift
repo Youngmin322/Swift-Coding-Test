@@ -1480,6 +1480,21 @@ func solution38(_ ingredient:[Int]) -> Int {
     return count
 }
 
+// 시간 복잡도 개선 버전
+func solution38_1(_ ingredient:[Int]) -> Int {
+    var stack: [Int] = []
+    var count = 0
+    for ingredient in ingredient {
+        stack.append(ingredient)
+        if stack.count >= 4 && stack.suffix(4) == [1, 2, 3, 1] {
+            stack.removeLast(4)
+            count += 1
+        }
+    }
+    return count
+}
+
+
 /*:
  ## 설명
  - stack: 현재 쌓여 있는 재료들을 저장하는 배열
