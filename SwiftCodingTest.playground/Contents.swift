@@ -1503,3 +1503,132 @@ func solution38_1(_ ingredient:[Int]) -> Int {
  - if문으로 스택의 마지막 재료가 [1, 2, 3, 1]이 되면 해당 스택 4개를 제거하고 count를 1 증가 시킴
  - 최종적으로 포장한 햄버거의 수(count)를 return
  */
+
+/*:
+ ## 설명
+ - 문자열로 변환한 값을 담을 변수를 선언하고 해당 변수에 String(n)을 대입
+ - 해당 변수를 return
+ */
+
+/*:
+ ## 📌 가장 많이 받은 선물
+ MARK: 가장 많이 받은 선물
+ 
+ - 선물을 직접 전하기 힘들 때 카카오톡 선물하기 기능을 이용해 축하 선물을 보낼 수 있습니다. 당신의 친구들이 이번 달까지 선물을 주고받은 기록을 바탕으로 다음 달에 누가 선물을 많이 받을지 예측하려고 합니다. 두 사람이 선물을 주고받은 기록이 있다면, 이번 달까지 두 사람 사이에 더 많은 선물을 준 사람이 다음 달에 선물을 하나 받습니다. 예를 들어 A가 B에게 선물을 5번 줬고, B가 A에게 선물을 3번 줬다면 다음 달엔 A가 B에게 선물을 하나 받습니다. 두 사람이 선물을 주고받은 기록이 하나도 없거나 주고받은 수가 같다면, 선물 지수가 더 큰 사람이 선물 지수가 더 작은 사람에게 선물을 하나 받습니다. 선물 지수는 이번 달까지 자신이 친구들에게 준 선물의 수에서 받은 선물의 수를 뺀 값입니다. 예를 들어 A가 친구들에게 준 선물이 3개고 받은 선물이 10개라면 A의 선물 지수는 -7입니다. B가 친구들에게 준 선물이 3개고 받은 선물이 2개라면 B의 선물 지수는 1입니다. 만약 A와 B가 선물을 주고받은 적이 없거나 정확히 같은 수로 선물을 주고받았다면, 다음 달엔 B가 A에게 선물을 하나 받습니다. 만약 두 사람의 선물 지수도 같다면 다음 달에 선물을 주고받지 않습니다. 위에서 설명한 규칙대로 다음 달에 선물을 주고받을 때, 당신은 선물을 가장 많이 받을 친구가 받을 선물의 수를 알고 싶습니다. 친구들의 이름을 담은 1차원 문자열 배열 friends 이번 달까지 친구들이 주고받은 선물 기록을 담은 1차원 문자열 배열 gifts가 매개변수로 주어집니다. 이때, 다음달에 가장 많은 선물을 받는 친구가 받을 선물의 수를 return 하도록 solution 함수를 완성해 주세요.
+
+ 
+ ### 🔹 문제 설명
+ - 모든 친구 쌍에 대해 다음 달에 누가 선물을 받는지 계산함
+ - 누가 선물을 얼마나 받는지를 모두 계산해서, 그 중 가장 많이 받은 수를 return
+ 
+ - friends가 ["muzi", "ryan", "frodo", "neo"]이고 gifts가 ["muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"]라면 2를 return
+  - friends가 ["joy", "brad", "alessandro", "conan", "david"]이고 gifts가 ["alessandro brad", "alessandro joy", "alessandro conan", "david alessandro", "alessandro david"]라면 4를 return
+  - friends가 ["a", "b", "c"]이고 gifts가 ["a b", "b a", "c a", "a c", "a c", "c a"]라면 0을 return
+ 
+  ### 🔹 제한 사항
+ - 2 ≤ friends의 길이 = 친구들의 수 ≤ 50
+ - friends의 원소는 친구의 이름을 의미하는 알파벳 소문자로 이루어진 길이가 10 이하인 문자열
+ - 1 ≤ gifts의 길이 ≤ 10,000
+ - gifts의 원소는 "A B"형태의 문자열이며 A는 선물을 준 친구, B는 선물을 받은 친구를 의미
+
+ */
+
+func solution39(_ friends: [String], _ gifts: [String]) -> Int {
+    // 친구 수를 저장 (예: ["muzi", "ryan", "frodo", "neo"]라면 n = 4)
+    let n = friends.count
+    
+    // 친구 이름을 숫자로 바꿔주는 사전 만들기
+    // 예: "muzi" -> 0, "ryan" -> 1, "frodo" -> 2, "neo" -> 3
+    var nameToIndex: [String: Int] = [:]
+    for (index, friend) in friends.enumerated() {
+        nameToIndex[friend] = index
+    }
+    
+    // 누가 누구에게 선물을 몇 개 줬는지 기록하는 표 만들기
+    // giftRecord[0][1] = muzi가 ryan에게 준 선물 개수
+    // 처음에는 모든 값이 0으로 설정됨
+    var giftRecord = Array(repeating: Array(repeating: 0, count: n), count: n)
+    
+    // 각 친구가 준 선물과 받은 선물의 총 개수를 세는 배열
+    var given = Array(repeating: 0, count: n)     // 준 선물 개수
+    var received = Array(repeating: 0, count: n)  // 받은 선물 개수
+    
+    // 선물 기록을 하나씩 읽어서 처리하기
+    // 예: "muzi frodo"라면 muzi가 frodo에게 선물을 준 것
+    for gift in gifts {
+        // 공백으로 나누기: "muzi frodo" -> ["muzi", "frodo"]
+        let parts = gift.split(separator: " ")
+        let giver = String(parts[0])      // 선물을 준 사람
+        let receiver = String(parts[1])   // 선물을 받은 사람
+        
+        // 이름을 숫자로 바꾸기
+        let giverIndex = nameToIndex[giver]!
+        let receiverIndex = nameToIndex[receiver]!
+        
+        // 선물 기록 표에 1개 추가
+        giftRecord[giverIndex][receiverIndex] += 1
+        // 준 사람의 "준 선물" 개수 1개 증가
+        given[giverIndex] += 1
+        // 받은 사람의 "받은 선물" 개수 1개 증가
+        received[receiverIndex] += 1
+    }
+    
+    // 선물 지수 계산하기 (준 선물 개수 - 받은 선물 개수)
+    // 예: muzi가 5개 주고 3개 받았다면 선물지수는 5-3=2
+    var giftIndex = Array(repeating: 0, count: n)
+    for i in 0..<n {
+        giftIndex[i] = given[i] - received[i]
+    }
+    
+    // 다음 달에 각 친구가 받을 선물의 수를 저장할 배열
+    var nextMonthGifts = Array(repeating: 0, count: n)
+    
+    // 모든 친구 쌍을 비교해서 누가 선물을 받을지 결정하기
+    // i < j로 하는 이유: 같은 쌍을 두 번 비교하지 않기 위해
+    for i in 0..<n {
+        for j in (i+1)..<n {
+            // i가 j에게 준 선물 개수
+            let iToJ = giftRecord[i][j]
+            // j가 i에게 준 선물 개수
+            let jToI = giftRecord[j][i]
+            
+            if iToJ > jToI {
+                // i가 j보다 더 많이 줬다면, i가 선물을 하나 받음
+                nextMonthGifts[i] += 1
+            } else if jToI > iToJ {
+                // j가 i보다 더 많이 줬다면, j가 선물을 하나 받음
+                nextMonthGifts[j] += 1
+            } else {
+                // 주고받은 개수가 같거나 주고받은 적이 없는 경우
+                // 선물 지수가 더 큰 사람이 선물을 받음
+                if giftIndex[i] > giftIndex[j] {
+                    nextMonthGifts[i] += 1
+                } else if giftIndex[j] > giftIndex[i] {
+                    nextMonthGifts[j] += 1
+                }
+                // 선물 지수도 똑같다면 아무도 선물을 안 받음 (아무것도 안 함)
+            }
+        }
+    }
+    
+    // 가장 많이 받을 선물의 개수를 찾아서 반환
+    return nextMonthGifts.max() ?? 0
+}
+/*:
+ ## 설명
+ - 먼저 nameToIndex 딕셔너리를 선언해서 친구 이름을 숫자 인덱스로 변환하는 매핑 테이블을 만듦
+ - giftRecord 2차원 배열을 선언해서 i번째 친구가 j번째 친구에게 준 선물 개수를 저장
+   - Array(repeating: Array(repeating: 0, count: n), count: n)로 n×n 크기의 0으로 초기화된 2차원 배열 생성
+ - given, received 배열을 선언해서 각 친구가 준 선물과 받은 선물의 총 개수를 추적
+ - for 루프를 통해 gifts 배열의 각 선물 기록을 처리
+   - split(separator: " ")를 사용해서 "A B" 형태의 문자열을 A와 B로 분리
+   - nameToIndex 딕셔너리를 사용해서 이름을 인덱스로 변환
+   - giftRecord, given, received 배열을 업데이트
+ - giftIndex 배열을 계산해서 각 친구의 선물 지수(준 선물 - 받은 선물)를 저장
+ - 이중 for 루프를 사용해서 모든 친구 쌍을 비교 (i < j 조건으로 중복 방지)
+   - 직접 주고받은 선물 수를 비교해서 더 많이 준 사람이 선물을 받음
+   - 같다면 선물 지수를 비교해서 높은 사람이 선물을 받음
+   - 선물 지수도 같다면 아무도 선물을 받지 않음
+ - nextMonthGifts.max() ?? 0을 사용해서 가장 많이 받을 선물의 개수를 반환
+   - max()는 옵셔널을 반환하므로 nil coalescent operator(??)를 사용해서 nil인 경우 0을 반환
+ */
