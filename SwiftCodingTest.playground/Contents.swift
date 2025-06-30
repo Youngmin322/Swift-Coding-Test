@@ -1664,3 +1664,29 @@ func solution40(_ myStr:String) -> [String] {
  - components는 연속된 구분자가 있을 때나 처음이나 끝에 구분자가 있을 때, 그 사이에 글자가 없으면 빈 문자열이 결과에 생기므로 filter 함수를 사용해서 빈 문자열은 제거
  - filtered를 return, 단 문제에서 return 하는 배열이 빈 배열이라면 ["EMPTY"]를 return해야 하므로 삼항 연산자를 사용해서 빈 배열이라면 ["EMPTY"]를 return
  */
+
+/*:
+ ## 📌 정수 부분
+ MARK: 정수 부분
+ 
+ - 실수 flo가 매개 변수로 주어질 때, flo의 정수 부분을 return하도록 solution 함수를 완성해주세요.
+
+ ### 🔹 문제 설명
+ - flo가 1.42 라면 1을 return
+ - flo가 69.32 라면 69를 return
+ 
+  ### 🔹 제한 사항
+ - 0 ≤ flo ≤ 100
+
+ */
+
+func solution41(_ flo:Double) -> Int {
+    let floInt = Int(flo)
+    return floInt
+}
+/*:
+ ## 설명
+ - 매개변수로 주어진 실수 'flo'에서 소수점 아래를 제외한 정수 부분만을 구해야 하므로 'Int(flo)'를 통해 실수를 정수형으로 변환
+ - 'Double'을 'Int'로 변환할 경우 소수점 이하가 자동으로 버려지고 내림(truncation) 방식으로 변환되므로 별도의 추가 처리 없이 정수 부분만 추출 가능
+ - 변환된 값을 그대로 return
+ */
