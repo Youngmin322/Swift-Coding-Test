@@ -1749,3 +1749,60 @@ func solution42(_ n:Int, _ m:Int, _ section:[Int]) -> Int {
  */
 
 
+func solution(_ cards1:[String], _ cards2:[String], _ goal:[String]) -> String {
+    var cards1 = cards1
+    var cards2 = cards2
+    
+    for word in goal {
+        if cards1.first == word {
+            cards1.removeFirst()
+        } else if cards2.first == word {
+            cards2.removeFirst()
+        } else {
+            return "No"
+        }
+    }
+    return "Yes"
+}
+
+
+/*:
+ ## 📌 간단한 논리 연산
+ MARK: 간단한 논리 연산
+ 
+ - boolean 변수 x1, x2, x3, x4가 매개변수로 주어질 때, 다음의 식의 true/false를 return 하는 solution 함수를 작성해 주세요.
+    - (x1 ∨ x2) ∧ (x3 ∨ x4)
+
+
+ ### 🔹 문제 설명
+ * (x1 ∨ x2) ∧ (x3 ∨ x4)
+ * Swift 문법으로는 (x1 || x2) && (x3 || x4)으로 표현
+
+ ### 🔹 조건
+ - 'x1', 'x2', 'x3', 'x4'는 모두 'Bool' 타입
+ - 연산은 OR('||')와 AND('&&')로 구성되어 있음
+     - '||'는 논리합: 둘 중 하나라도 'true'면 'true'
+     - &&는 논리곱: 둘 다 'true'일 때만 'true'
+
+ ### 🔹 반환값
+ - 전체 논리식의 결과인 'true' 또는 'false'를 return
+
+ ### 🔹 입출력 예시
+
+ | x1    | x2    | x3    | x4    | 결과     |
+ |-------|-------|-------|-------|----------|
+ | false | true  | true  | true  | true     |
+ | true  | false | false | false | false    |
+
+ ### 🔹 예시 설명
+ 1. 첫 번째 줄:
+    '(false || true) && (true || true)' → 'true && true' → 'true' 반환
+
+ 2. 두 번째 줄:
+    '(true || false) && (false || false)' → 'true && false' → 'false' 반환
+*/
+
+
+func solution(_ x1:Bool, _ x2:Bool, _ x3:Bool, _ x4:Bool) -> Bool {
+    return (x1 || x2) && (x3 || x4)
+}
