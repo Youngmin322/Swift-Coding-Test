@@ -820,7 +820,7 @@ func solution20(_ binomial:String) -> Int {
  ## 설명
  - binomial 문자열을 공백 기준으로 나누기 위해 components 상수를 선언
  - if let문법으로 components의 개수가 3개라면 각각의 요소를 a, b, op 변수에 대입(조건식에서 알 수 있듯이 binomial은 형태가 고정되어 있으므로 항상 개수가 3임)
-    - 단, 이때 a와 b는 Int로 타입 변환을 진행
+ - 단, 이때 a와 b는 Int로 타입 변환을 진행
  - switch case문으로 각각의 연산에 맞게 계산을 진행하고 해당 값을 return
  */
 
@@ -837,7 +837,7 @@ func solution20(_ binomial:String) -> Int {
  
  ### 🔹 제한 사항
  - 1 ≤ myString ≤ 100,000
-    - myString은 알파벳 소문자로 이루어진 문자열입니다.
+ - myString은 알파벳 소문자로 이루어진 문자열입니다.
  */
 
 func solution21(_ myString:String) -> [String] {
@@ -943,7 +943,7 @@ func solution23(_ num_list:[Int]) -> Int {
  - 2 ≤ num_list의 길이 ≤ 20
  - 1 ≤ num_list의 원소 ≤ 9
  - num_list의 원소를 모두 곱했을 때 2,147,483,647를 넘는 입력은 주어지지 않습니다.
-
+ 
  */
 
 func solution24(_ num_list:[Int]) -> Int {
@@ -965,7 +965,7 @@ func solution24(_ num_list:[Int]) -> Int {
  - num_list의 길이를 담을 변수와 num_list의 합, 곱을 담을 변수를 각각 선언
  - if문으로 num_list의 길이가 11 이상이라면 reduce 함수로 0부터 쭉 모아서 더해주고 sum을 return
  - 그 외의 조건은 reduce 함수로 1부터 모아서 곱해주고 해당 값을 return함
-    - 0부터 모으지 않은 이유는 0을 포함하는 순간 0도 같이 곱해지기 때문에 결과 값이 항상 0이 나옴
+ - 0부터 모으지 않은 이유는 0을 포함하는 순간 0도 같이 곱해지기 때문에 결과 값이 항상 0이 나옴
  */
 
 
@@ -981,9 +981,9 @@ func solution24(_ num_list:[Int]) -> Int {
  
  ### 🔹 제한 사항
  - 1 ≤ myString의 길이 ≤ 100,000
-    - myString은 알파벳으로 이루어진 문자열입니다.
-
-
+ - myString은 알파벳으로 이루어진 문자열입니다.
+ 
+ 
  */
 
 func solution25(_ myString:String) -> String {
@@ -1010,7 +1010,7 @@ func solution25(_ myString:String) -> String {
  
  ### 🔹 제한 사항
  - 1 ≤ myString의 길이 ≤ 100,000
-    - myString은 알파벳으로 이루어진 문자열입니다.
+ - myString은 알파벳으로 이루어진 문자열입니다.
  */
 
 func solution26(_ myString:String) -> String {
@@ -1041,7 +1041,7 @@ func solution26(_ myString:String) -> String {
  - 1 ≤ myString의 길이 ≤ 100,000
  - 1 ≤ pat의 길이 ≤ 300
  - myString과 pat은 모두 알파벳으로 이루어진 문자열입니다.
-
+ 
  */
 
 func solution27(_ myString:String, _ pat:String) -> Int {
@@ -1070,8 +1070,8 @@ func solution27(_ myString:String, _ pat:String) -> Int {
  
  ### 🔹 제한 사항
  - 1 ≤ myString의 길이 ≤ 20
-     - myString은 알파벳으로 이루어진 문자열입니다.
-
+ - myString은 알파벳으로 이루어진 문자열입니다.
+ 
  */
 
 func solution28(_ myString:String) -> String {
@@ -1107,9 +1107,9 @@ func solution28(_ myString:String) -> String {
  
  ### 🔹 제한 사항
  - 1 ≤ strArr의 길이 ≤ 1,000
-    - 1 ≤ strArr의 원소의 길이 ≤ 20
-    - strArr의 원소는 알파벳 소문자로 이루어진 문자열입니다.
-
+ - 1 ≤ strArr의 원소의 길이 ≤ 20
+ - strArr의 원소는 알파벳 소문자로 이루어진 문자열입니다.
+ 
  */
 
 func solution29(_ strArr:[String]) -> [String] {
@@ -1139,7 +1139,7 @@ func solution29(_ strArr:[String]) -> [String] {
  - my_string은 영소문자와 공백으로만 이루어져 있습니다.
  - 1 ≤ my_string의 길이 ≤ 1,000
  - my_string의 맨 앞과 맨 뒤에 글자는 공백이 아닙니다.
-
+ 
  */
 
 func solution30(_ my_string:String) -> [String] {
@@ -1166,11 +1166,11 @@ func solution30(_ my_string:String) -> [String] {
  - my_string이 " i    love  you" 라면 ["i", "love", "you"]을 return
  
  ### 🔹 제한 사항
-  - my_string은 영소문자와 공백으로만 이루어져 있습니다.
-  - 1 ≤ my_string의 길이 ≤ 1,000
-  - my_string의 맨 앞과 맨 뒤에도 공백이 있을 수 있습니다.
-  - my_string에는 단어가 하나 이상 존재합니다.
-
+ - my_string은 영소문자와 공백으로만 이루어져 있습니다.
+ - 1 ≤ my_string의 길이 ≤ 1,000
+ - my_string의 맨 앞과 맨 뒤에도 공백이 있을 수 있습니다.
+ - my_string에는 단어가 하나 이상 존재합니다.
+ 
  */
 
 func solution31(_ my_string:String) -> [String] {
@@ -1190,9 +1190,9 @@ func solution31(_ my_string:String) -> [String] {
  MARK: 주사위 게임 1
  
  - 1부터 6까지 숫자가 적힌 주사위가 두 개 있습니다. 두 주사위를 굴렸을 때 나온 숫자를 각각 a, b라고 했을 때 얻는 점수는 다음과 같습니다.
-    - a와 b가 모두 홀수라면 a2 + b2 점을 얻습니다.
-    - a와 b 중 하나만 홀수라면 2 × (a + b) 점을 얻습니다.
-    - a와 b 모두 홀수가 아니라면 |a - b| 점을 얻습니다.
+ - a와 b가 모두 홀수라면 a2 + b2 점을 얻습니다.
+ - a와 b 중 하나만 홀수라면 2 × (a + b) 점을 얻습니다.
+ - a와 b 모두 홀수가 아니라면 |a - b| 점을 얻습니다.
  - 두 정수 a와 b가 매개변수로 주어질 때, 얻는 점수를 return 하는 solution 함수를 작성해 주세요.
  
  
@@ -1202,8 +1202,8 @@ func solution31(_ my_string:String) -> [String] {
  - a가 2 b가 4라면 2를 return
  
  ### 🔹 제한 사항
-  - a와 b는 1 이상 6 이하의 정수입니다.
-
+ - a와 b는 1 이상 6 이하의 정수입니다.
+ 
  */
 
 func solution32(_ a:Int, _ b:Int) -> Int {
@@ -1221,7 +1221,7 @@ func solution32(_ a:Int, _ b:Int) -> Int {
  - if else 문을 사용해 세 가지 케이스로 분기 처리
  - 첫 번째 조건은 a와 b가 모두 홀수일 때 해당 -> && (AND 연산자)를 사용해 두 조건이 모두 참일 때만 실행
  - 두 번째 조건은 a와 b 중 하나만 홀수일 때 해당 → || (OR 연산자)를 사용해 둘 중 하나만 참이면 실행됨
-    - (a % 2 == 1 && b % 2 == 0) 또는 (a % 2 == 0 && b % 2 == 1) 중 하나라도 참이면 해당
+ - (a % 2 == 1 && b % 2 == 0) 또는 (a % 2 == 0 && b % 2 == 1) 중 하나라도 참이면 해당
  - 세 번째 조건은 a와 b가 모두 짝수일 때 해당되며, 위 조건에 해당하지 않는 나머지 경우를 처리
  - 이때 abs(a - b)는 a와 b의 차이를 절댓값으로 반환함 (음수 방지)
  */
@@ -1248,7 +1248,7 @@ func solution32(_ a:Int, _ b:Int) -> Int {
  - 3 ≤ X, Y의 길이(자릿수) ≤ 3,000,000입니다.
  - X, Y는 0으로 시작하지 않습니다.
  - X, Y의 짝꿍은 상당히 큰 정수일 수 있으므로, 문자열로 반환합니다.
-
+ 
  */
 
 func solution33(_ X:String, _ Y:String) -> String {
@@ -1288,13 +1288,13 @@ func solution33(_ X:String, _ Y:String) -> String {
  - 두 문자열 X와 Y에서 각 숫자(0~9)의 등장 횟수를 배열(countX, countY)에 저장
  - 각 숫자마다 등장 횟수를 기록하면, 숫자별로 얼마나 겹치는지 빠르게 알 수 있음
  - 이후 9부터 0까지 숫자를 내림차순으로 탐색
-    - 가장 큰 수를 만들기 위해 높은 숫자부터 결과 문자열에 추가
+ - 가장 큰 수를 만들기 위해 높은 숫자부터 결과 문자열에 추가
  - 각 숫자 i에 대해 X와 Y 모두에서 나타나는 개수의 최솟값(min)을 계산하여 짝 지을 수 있는 개수를 구함
-    - 예: X에 5가 3번, Y에 5가 2번 → 짝 지을 수 있는 5는 2개
-    - 이때 String(repeating: "\(i)", count: 개수)를 사용해 해당 숫자를 여러 번 붙임
+ - 예: X에 5가 3번, Y에 5가 2번 → 짝 지을 수 있는 5는 2개
+ - 이때 String(repeating: "\(i)", count: 개수)를 사용해 해당 숫자를 여러 번 붙임
  - 최종적으로 만들어진 문자열 result가 다음 조건 중 하나에 해당할 경우 예외 처리
-    - 아무 숫자도 짝지어지지 않은 경우 → result는 빈 문자열("") → "-1" 반환
-    - 결과가 "000..."처럼 0으로만 구성된 경우 → "0" 반환
+ - 아무 숫자도 짝지어지지 않은 경우 → result는 빈 문자열("") → "-1" 반환
+ - 결과가 "000..."처럼 0으로만 구성된 경우 → "0" 반환
  - 위 두 경우 외에는 result 문자열을 그대로 반환
  */
 
@@ -1304,7 +1304,7 @@ func solution33(_ X:String, _ Y:String) -> String {
  MARK: 원소들의 곱과 합
  
  - 정수가 담긴 리스트 num_list가 주어질 때, 모든 원소들의 곱이 모든 원소들의 합의 제곱보다 작으면 1을 크면 0을 return하도록 solution 함수를 완성해주세요.
-  
+ 
  
  ### 🔹 문제 설명
  - num_list가 [3, 4, 5, 2, 1]이라면 1을 return
@@ -1316,7 +1316,7 @@ func solution33(_ X:String, _ Y:String) -> String {
  ### 🔹 제한 사항
  - 2 ≤ num_list의 길이 ≤ 10
  - 1 ≤ num_list의 원소 ≤ 9
-
+ 
  */
 
 func solution34(_ num_list: [Int]) -> Int {
@@ -1329,15 +1329,15 @@ func solution34(_ num_list: [Int]) -> Int {
 /*:
  ## 설명
  - 리스트에 있는 모든 원소들의 곱(product)을 reduce(1, *)로 계산
-   - 곱셈의 항등원 1을 초기값으로 사용하여 모든 원소를 곱함
-
+ - 곱셈의 항등원 1을 초기값으로 사용하여 모든 원소를 곱함
+ 
  - 리스트에 있는 모든 원소들의 합(sum)을 reduce(0, +)로 계산
-   - 덧셈의 항등원 0을 초기값으로 사용하여 모든 원소를 더함
-
+ - 덧셈의 항등원 0을 초기값으로 사용하여 모든 원소를 더함
+ 
  - 조건 비교:
-   - product < sum * sum 인지 검사
-   - 즉, 원소의 곱이 원소의 합의 제곱보다 작으면 1 반환 (삼항 연산자를 사용)
-   - 그렇지 않으면 0 반환
+ - product < sum * sum 인지 검사
+ - 즉, 원소의 곱이 원소의 합의 제곱보다 작으면 1 반환 (삼항 연산자를 사용)
+ - 그렇지 않으면 0 반환
  */
 
 
@@ -1346,14 +1346,14 @@ func solution34(_ num_list: [Int]) -> Int {
  MARK: 숫자 문자열과 영단어
  
  - 네오와 프로도가 숫자놀이를 하고 있습니다. 네오가 프로도에게 숫자를 건넬 때 일부 자릿수를 영단어로 바꾼 카드를 건네주면 프로도는 원래 숫자를 찾는 게임입니다.
-
+ 
  - 다음은 숫자의 일부 자릿수를 영단어로 바꾸는 예시입니다.
-
+ 
  - 1478 → "one4seveneight"
  - 234567 → "23four5six7"
  - 10203 → "1zerotwozero3"
  - 이렇게 숫자의 일부 자릿수가 영단어로 바뀌어졌거나, 혹은 바뀌지 않고 그대로인 문자열 s가 매개변수로 주어집니다. s가 의미하는 원래 숫자를 return 하도록 solution 함수를 완성해주세요.
-  
+ 
  
  ### 🔹 문제 설명
  - num_list가 [3, 4, 5, 2, 1]이라면 1을 return
@@ -1366,7 +1366,7 @@ func solution34(_ num_list: [Int]) -> Int {
  - 1 ≤ s의 길이 ≤ 50
  - s가 "zero" 또는 "0"으로 시작하는 경우는 주어지지 않습니다.
  - return 값이 1 이상 2,000,000,000 이하의 정수가 되는 올바른 입력만 s로 주어집니다.
-
+ 
  */
 
 func solution35(_ s:String) -> Int {
@@ -1390,8 +1390,8 @@ func solution35(_ s:String) -> Int {
  - for 루프를 통해서 "zero"부터 "nine"까지 차례로 변환
  - replacingOccurrences(of: with:) 함수를 사용해서 word를 digit으로 바꿈
  - 변환이 끝나면 result를 Int로 형변환을 하고 강제 언래핑을 한 후 return
-    - 강제 언래핑을 하는 이유는 Int(...)는 항상 옵셔널 타입으로 반환하고 이 문제에서는 nil이 없기 때문에 강제 언래핑을 사용함
-    - 만약 문제에서 nil도 포함이 된다면 if let or guard let을 사용해서 옵셔널 바인딩을 해야 함
+ - 강제 언래핑을 하는 이유는 Int(...)는 항상 옵셔널 타입으로 반환하고 이 문제에서는 nil이 없기 때문에 강제 언래핑을 사용함
+ - 만약 문제에서 nil도 포함이 된다면 if let or guard let을 사용해서 옵셔널 바인딩을 해야 함
  */
 
 
@@ -1454,7 +1454,7 @@ func solution37(_ n:Int) -> String {
  - 햄버거 가게에서 일을 하는 상수는 햄버거를 포장하는 일을 합니다. 함께 일을 하는 다른 직원들이 햄버거에 들어갈 재료를 조리해 주면 조리된 순서대로 상수의 앞에 아래서부터 위로 쌓이게 되고, 상수는 순서에 맞게 쌓여서 완성된 햄버거를 따로 옮겨 포장을 하게 됩니다. 상수가 일하는 가게는 정해진 순서(아래서부터, 빵 – 야채 – 고기 - 빵)로 쌓인 햄버거만 포장을 합니다. 상수는 손이 굉장히 빠르기 때문에 상수가 포장하는 동안 속 재료가 추가적으로 들어오는 일은 없으며, 재료의 높이는 무시하여 재료가 높이 쌓여서 일이 힘들어지는 경우는 없습니다.
  
  - 예를 들어, 상수의 앞에 쌓이는 재료의 순서가 [야채, 빵, 빵, 야채, 고기, 빵, 야채, 고기, 빵]일 때, 상수는 여섯 번째 재료가 쌓였을 때, 세 번째 재료부터 여섯 번째 재료를 이용하여 햄버거를 포장하고, 아홉 번째 재료가 쌓였을 때, 두 번째 재료와 일곱 번째 재료부터 아홉 번째 재료를 이용하여 햄버거를 포장합니다. 즉, 2개의 햄버거를 포장하게 됩니다.
-
+ 
  - 상수에게 전해지는 재료의 정보를 나타내는 정수 배열 ingredient가 주어졌을 때, 상수가 포장하는 햄버거의 개수를 return 하도록 solution 함수를 완성하시오.
  
  ### 🔹 문제 설명
@@ -1515,22 +1515,22 @@ func solution38_1(_ ingredient:[Int]) -> Int {
  MARK: 가장 많이 받은 선물
  
  - 선물을 직접 전하기 힘들 때 카카오톡 선물하기 기능을 이용해 축하 선물을 보낼 수 있습니다. 당신의 친구들이 이번 달까지 선물을 주고받은 기록을 바탕으로 다음 달에 누가 선물을 많이 받을지 예측하려고 합니다. 두 사람이 선물을 주고받은 기록이 있다면, 이번 달까지 두 사람 사이에 더 많은 선물을 준 사람이 다음 달에 선물을 하나 받습니다. 예를 들어 A가 B에게 선물을 5번 줬고, B가 A에게 선물을 3번 줬다면 다음 달엔 A가 B에게 선물을 하나 받습니다. 두 사람이 선물을 주고받은 기록이 하나도 없거나 주고받은 수가 같다면, 선물 지수가 더 큰 사람이 선물 지수가 더 작은 사람에게 선물을 하나 받습니다. 선물 지수는 이번 달까지 자신이 친구들에게 준 선물의 수에서 받은 선물의 수를 뺀 값입니다. 예를 들어 A가 친구들에게 준 선물이 3개고 받은 선물이 10개라면 A의 선물 지수는 -7입니다. B가 친구들에게 준 선물이 3개고 받은 선물이 2개라면 B의 선물 지수는 1입니다. 만약 A와 B가 선물을 주고받은 적이 없거나 정확히 같은 수로 선물을 주고받았다면, 다음 달엔 B가 A에게 선물을 하나 받습니다. 만약 두 사람의 선물 지수도 같다면 다음 달에 선물을 주고받지 않습니다. 위에서 설명한 규칙대로 다음 달에 선물을 주고받을 때, 당신은 선물을 가장 많이 받을 친구가 받을 선물의 수를 알고 싶습니다. 친구들의 이름을 담은 1차원 문자열 배열 friends 이번 달까지 친구들이 주고받은 선물 기록을 담은 1차원 문자열 배열 gifts가 매개변수로 주어집니다. 이때, 다음달에 가장 많은 선물을 받는 친구가 받을 선물의 수를 return 하도록 solution 함수를 완성해 주세요.
-
+ 
  
  ### 🔹 문제 설명
  - 모든 친구 쌍에 대해 다음 달에 누가 선물을 받는지 계산함
  - 누가 선물을 얼마나 받는지를 모두 계산해서, 그 중 가장 많이 받은 수를 return
  
  - friends가 ["muzi", "ryan", "frodo", "neo"]이고 gifts가 ["muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"]라면 2를 return
-  - friends가 ["joy", "brad", "alessandro", "conan", "david"]이고 gifts가 ["alessandro brad", "alessandro joy", "alessandro conan", "david alessandro", "alessandro david"]라면 4를 return
-  - friends가 ["a", "b", "c"]이고 gifts가 ["a b", "b a", "c a", "a c", "a c", "c a"]라면 0을 return
+ - friends가 ["joy", "brad", "alessandro", "conan", "david"]이고 gifts가 ["alessandro brad", "alessandro joy", "alessandro conan", "david alessandro", "alessandro david"]라면 4를 return
+ - friends가 ["a", "b", "c"]이고 gifts가 ["a b", "b a", "c a", "a c", "a c", "c a"]라면 0을 return
  
-  ### 🔹 제한 사항
+ ### 🔹 제한 사항
  - 2 ≤ friends의 길이 = 친구들의 수 ≤ 50
  - friends의 원소는 친구의 이름을 의미하는 알파벳 소문자로 이루어진 길이가 10 이하인 문자열
  - 1 ≤ gifts의 길이 ≤ 10,000
  - gifts의 원소는 "A B"형태의 문자열이며 A는 선물을 준 친구, B는 선물을 받은 친구를 의미
-
+ 
  */
 
 func solution39(_ friends: [String], _ gifts: [String]) -> Int {
@@ -1618,19 +1618,19 @@ func solution39(_ friends: [String], _ gifts: [String]) -> Int {
  ## 설명
  - 먼저 nameToIndex 딕셔너리를 선언해서 친구 이름을 숫자 인덱스로 변환하는 매핑 테이블을 만듦
  - giftRecord 2차원 배열을 선언해서 i번째 친구가 j번째 친구에게 준 선물 개수를 저장
-   - Array(repeating: Array(repeating: 0, count: n), count: n)로 n×n 크기의 0으로 초기화된 2차원 배열 생성
+ - Array(repeating: Array(repeating: 0, count: n), count: n)로 n×n 크기의 0으로 초기화된 2차원 배열 생성
  - given, received 배열을 선언해서 각 친구가 준 선물과 받은 선물의 총 개수를 추적
  - for 루프를 통해 gifts 배열의 각 선물 기록을 처리
-   - split(separator: " ")를 사용해서 "A B" 형태의 문자열을 A와 B로 분리
-   - nameToIndex 딕셔너리를 사용해서 이름을 인덱스로 변환
-   - giftRecord, given, received 배열을 업데이트
+ - split(separator: " ")를 사용해서 "A B" 형태의 문자열을 A와 B로 분리
+ - nameToIndex 딕셔너리를 사용해서 이름을 인덱스로 변환
+ - giftRecord, given, received 배열을 업데이트
  - giftIndex 배열을 계산해서 각 친구의 선물 지수(준 선물 - 받은 선물)를 저장
  - 이중 for 루프를 사용해서 모든 친구 쌍을 비교 (i < j 조건으로 중복 방지)
-   - 직접 주고받은 선물 수를 비교해서 더 많이 준 사람이 선물을 받음
-   - 같다면 선물 지수를 비교해서 높은 사람이 선물을 받음
-   - 선물 지수도 같다면 아무도 선물을 받지 않음
+ - 직접 주고받은 선물 수를 비교해서 더 많이 준 사람이 선물을 받음
+ - 같다면 선물 지수를 비교해서 높은 사람이 선물을 받음
+ - 선물 지수도 같다면 아무도 선물을 받지 않음
  - nextMonthGifts.max() ?? 0을 사용해서 가장 많이 받을 선물의 개수를 반환
-   - max()는 옵셔널을 반환하므로 nil coalescent operator(??)를 사용해서 nil인 경우 0을 반환
+ - max()는 옵셔널을 반환하므로 nil coalescent operator(??)를 사용해서 nil인 경우 0을 반환
  */
 
 
@@ -1639,16 +1639,16 @@ func solution39(_ friends: [String], _ gifts: [String]) -> Int {
  MARK: 세 개의 구분자
  
  - 임의의 문자열이 주어졌을 때 문자 "a", "b", "c"를 구분자로 사용해 문자열을 나누고자 합니다. 예를 들어 주어진 문자열이 "baconlettucetomato"라면 나눠진 문자열 목록은 ["onlettu", "etom", "to"] 가 됩니다. 문자열 myStr이 주어졌을 때 위 예시와 같이 "a", "b", "c"를 사용해 나눠진 문자열을 순서대로 저장한 배열을 return 하는 solution 함수를 완성해 주세요. 단, 두 구분자 사이에 다른 문자가 없을 경우에는 아무것도 저장하지 않으며, return할 배열이 빈 배열이라면 ["EMPTY"]를 return 합니다.
-
+ 
  
  ### 🔹 문제 설명
  - myStr이 ["abcd"] 라면 ["d"]를 return
  - myStr이 ["cabab"] 라면 ["EMPTY"]를 return
  
-  ### 🔹 제한 사항
+ ### 🔹 제한 사항
  - 1 ≤ myStr의 길이 ≤ 1,000,000
-    - myStr은 알파벳 소문자로 이루어진 문자열 입니다.
-
+ - myStr은 알파벳 소문자로 이루어진 문자열 입니다.
+ 
  */
 
 func solution40(_ myStr:String) -> [String] {
@@ -1670,14 +1670,14 @@ func solution40(_ myStr:String) -> [String] {
  MARK: 정수 부분
  
  - 실수 flo가 매개 변수로 주어질 때, flo의 정수 부분을 return하도록 solution 함수를 완성해주세요.
-
+ 
  ### 🔹 문제 설명
  - flo가 1.42 라면 1을 return
  - flo가 69.32 라면 69를 return
  
-  ### 🔹 제한 사항
+ ### 🔹 제한 사항
  - 0 ≤ flo ≤ 100
-
+ 
  */
 
 func solution41(_ flo:Double) -> Int {
@@ -1699,31 +1699,31 @@ func solution41(_ flo:Double) -> Int {
  - 어느 학교에 페인트가 칠해진 길이가 n미터인 벽이 있습니다. 벽에 동아리 · 학회 홍보나 회사 채용 공고 포스터 등을 게시하기 위해 테이프로 붙였다가 철거할 때 떼는 일이 많고 그 과정에서 페인트가 벗겨지곤 합니다. 페인트가 벗겨진 벽이 보기 흉해져 학교는 벽에 페인트를 덧칠하기로 했습니다.
  
  넓은 벽 전체에 페인트를 새로 칠하는 대신, 구역을 나누어 일부만 페인트를 새로 칠 함으로써 예산을 아끼려 합니다. 이를 위해 벽을 1미터 길이의 구역 n개로 나누고, 각 구역에 왼쪽부터 순서대로 1번부터 n번까지 번호를 붙였습니다. 그리고 페인트를 다시 칠해야 할 구역들을 정했습니다.
-
+ 
  벽에 페인트를 칠하는 롤러의 길이는 m미터이고, 롤러로 벽에 페인트를 한 번 칠하는 규칙은 다음과 같습니다.
-
+ 
  롤러가 벽에서 벗어나면 안 됩니다.
  구역의 일부분만 포함되도록 칠하면 안 됩니다.
  즉, 롤러의 좌우측 끝을 구역의 경계선 혹은 벽의 좌우측 끝부분에 맞춘 후 롤러를 위아래로 움직이면서 벽을 칠합니다. 현재 페인트를 칠하는 구역들을 완전히 칠한 후 벽에서 롤러를 떼며, 이를 벽을 한 번 칠했다고 정의합니다.
-
+ 
  한 구역에 페인트를 여러 번 칠해도 되고 다시 칠해야 할 구역이 아닌 곳에 페인트를 칠해도 되지만 다시 칠하기로 정한 구역은 적어도 한 번 페인트칠을 해야 합니다. 예산을 아끼기 위해 다시 칠할 구역을 정했듯 마찬가지로 롤러로 페인트칠을 하는 횟수를 최소화하려고 합니다.
-
+ 
  정수 n, m과 다시 페인트를 칠하기로 정한 구역들의 번호가 담긴 정수 배열 section이 매개변수로 주어질 때 롤러로 페인트칠해야 하는 최소 횟수를 return 하는 solution 함수를 작성해 주세요.
-
-
-
+ 
+ 
+ 
  ### 🔹 문제 설명
  - n이 8, m이 4, section이 [2, 3, 6] 이라면 2를 return
  - flo가 69.32 라면 69를 return
  
-  ### 🔹 제한 사항
+ ### 🔹 제한 사항
  - 1 ≤ m ≤ n ≤ 100,000
  - 1 ≤ section의 길이 ≤ n
-    - 1 ≤ section의 원소 ≤ n
-    - section의 원소는 페인트를 다시 칠해야 하는 구역의 번호입니다.
-    - section에서 같은 원소가 두 번 이상 나타나지 않습니다.
-    - section의 원소는 오름차순으로 정렬되어 있습니다.
-
+ - 1 ≤ section의 원소 ≤ n
+ - section의 원소는 페인트를 다시 칠해야 하는 구역의 번호입니다.
+ - section에서 같은 원소가 두 번 이상 나타나지 않습니다.
+ - section의 원소는 오름차순으로 정렬되어 있습니다.
+ 
  */
 
 func solution42(_ n:Int, _ m:Int, _ section:[Int]) -> Int {
@@ -1771,38 +1771,90 @@ func solution(_ cards1:[String], _ cards2:[String], _ goal:[String]) -> String {
  MARK: 간단한 논리 연산
  
  - boolean 변수 x1, x2, x3, x4가 매개변수로 주어질 때, 다음의 식의 true/false를 return 하는 solution 함수를 작성해 주세요.
-    - (x1 ∨ x2) ∧ (x3 ∨ x4)
-
-
+ - (x1 ∨ x2) ∧ (x3 ∨ x4)
+ 
+ 
  ### 🔹 문제 설명
  * (x1 ∨ x2) ∧ (x3 ∨ x4)
  * Swift 문법으로는 (x1 || x2) && (x3 || x4)으로 표현
-
+ 
  ### 🔹 조건
  - 'x1', 'x2', 'x3', 'x4'는 모두 'Bool' 타입
  - 연산은 OR('||')와 AND('&&')로 구성되어 있음
-     - '||'는 논리합: 둘 중 하나라도 'true'면 'true'
-     - &&는 논리곱: 둘 다 'true'일 때만 'true'
-
+ - '||'는 논리합: 둘 중 하나라도 'true'면 'true'
+ - &&는 논리곱: 둘 다 'true'일 때만 'true'
+ 
  ### 🔹 반환값
  - 전체 논리식의 결과인 'true' 또는 'false'를 return
-
+ 
  ### 🔹 입출력 예시
-
+ 
  | x1    | x2    | x3    | x4    | 결과     |
  |-------|-------|-------|-------|----------|
  | false | true  | true  | true  | true     |
  | true  | false | false | false | false    |
-
+ 
  ### 🔹 예시 설명
  1. 첫 번째 줄:
-    '(false || true) && (true || true)' → 'true && true' → 'true' 반환
-
+ '(false || true) && (true || true)' → 'true && true' → 'true' 반환
+ 
  2. 두 번째 줄:
-    '(true || false) && (false || false)' → 'true && false' → 'false' 반환
-*/
+ '(true || false) && (false || false)' → 'true && false' → 'false' 반환
+ */
 
 
 func solution(_ x1:Bool, _ x2:Bool, _ x3:Bool, _ x4:Bool) -> Bool {
     return (x1 || x2) && (x3 || x4)
 }
+
+
+/*:
+ ## 📌 귤 고르기
+ MARK: 귤 고르기
+ 
+ - 경화는 과수원에서 귤을 수확했습니다. 경화는 수확한 귤 중 'k'개를 골라 상자 하나에 담아 판매하려고 합니다. 그런데 수확한 귤의 크기가 일정하지 않아 보기에 좋지 않다고 생각한 경화는 귤을 크기별로 분류했을 때 서로 다른 종류의 수를 최소화하고 싶습니다.
+ 
+ - 예를 들어, 경화가 수확한 귤 8개의 크기가 [1, 3, 2, 5, 4, 5, 2, 3] 이라고 합시다. 경화가 귤 6개를 판매하고 싶다면, 크기가 1, 4인 귤을 제외한 여섯 개의 귤을 상자에 담으면, 귤의 크기의 종류가 2, 3, 5로 총 3가지가 되며 이때가 서로 다른 종류가 최소일 때입니다.
+ 
+ - 경화가 한 상자에 담으려는 귤의 개수 k와 귤의 크기를 담은 배열 tangerine이 매개변수로 주어집니다. 경화가 귤 k개를 고를 때 크기가 서로 다른 종류의 수의 최솟값을 return 하도록 solution 함수를 작성해주세요.
+ 
+ ### 🔹 문제 설명
+ - k가 6, tangerine이 [1, 3, 2, 5, 4, 5, 2, 3]이라면 result는 3
+ 
+ ### 🔹 조건
+ - 1 ≤ k ≤ tangerine의 길이 ≤ 100,000
+ - 1 ≤ tangerine의 원소 ≤ 10,000,000
+ */
+
+func solution43(_ k:Int, _ tangerine:[Int]) -> Int {
+    var sizeCount: [Int: Int] = [:]
+    for size in tangerine {
+        sizeCount[size, default: 0] += 1
+    }
+    
+    let sortedCounts = sizeCount.values.sorted(by: >)
+    
+    var remainingK = k
+    var types = 0
+    
+    for count in sortedCounts {
+        if remainingK <= 0 {
+            break
+        }
+        
+        remainingK -= count
+        types += 1
+    }
+    
+    return types
+}
+
+/*:
+## 설명
+- var sizeCount: [Int: Int] = [:]: 각 귤 크기별 개수를 저장할 딕셔너리 생성
+- sizeCount[size, default: 0] += 1: 해당 크기가 없으면 0으로 초기화 후 1 증가 (빈도수 계산)
+- sizeCount.values.sorted(by: >): 딕셔너리의 값들(개수)만 추출하여 내림차순 정렬
+- remainingK -= count: 현재 크기의 귤을 모두 선택하고 남은 개수 계산
+- types += 1: 새로운 크기 종류를 선택했으므로 종류 수 증가
+- if remainingK <= 0: 목표 개수 달성 시 반복문 종료
+*/
